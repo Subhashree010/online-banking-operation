@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #f8f9fa;
+}
+
+.login-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+.login-form {
+	background-color: #ffffff;
+	border-radius: 8px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	padding: 40px;
+	width: 300px;
+	text-align: center;
+}
+
+h2 {
+	color: #343a40;
+}
+
+.input-group {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	border-bottom: 2px solid #343a40;
+	padding-bottom: 5px;
+}
+
+.input-group i {
+	margin-right: 10px;
+	color: #343a40;
+}
+
+input {
+	border: none;
+	outline: none;
+	width: 100%;
+	font-size: 16px;
+}
+
+button {
+	background-color: #343a40;
+	color: #ffffff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #1d2124;
+}
+</style>
+</head>
+<body>
+	<div style="position: absolute; top: 10px; right: 10px;">
+		<a th:href="@{/users}" class="animate__animated animate__fadeInRight">Home</a>
+	</div>
+
+	<div style="position: absolute; top: 10px; right: 65px;">
+		<a th:href="@{/users/register}"
+			class="animate__animated animate__fadeInRight">Register</a>
+	</div>
+
+	<div class="login-container">
+		<div class="login-form">
+			<h2>Login</h2>
+
+			<form th:action="@{/accounts/login}" method="post" th:object="${user}">
+				<div class="input-group">
+					<i class="fas fa-envelope"></i> <input type="email" id="email"
+						name="email" th:field="*{email}" placeholder="Email" required>
+				</div>
+
+				<div class="input-group">
+					<i class="fas fa-lock"></i> <input type="password" id="password"
+						name="password" th:field="*{password}" placeholder="Password"
+						required>
+				</div>
+
+				<button type="submit">Login</button>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

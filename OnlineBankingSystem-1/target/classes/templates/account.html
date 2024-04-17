@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Information Form</title>
+</head>
+<body>
+
+    <h2>Add Account Information Form</h2>
+
+    <form th:action="@{/accounts/addAccount}" th:object="${account}" method="post">
+        <!-- Account Number -->
+        <label for="accountNo">Account Number:</label>
+        <input type="text" id="accountNo" name="accountNo" th:field="*{accountNo}" required>
+        <br>
+
+        <!-- Account Balance -->
+        <label for="balance">Account Balance:</label>
+        <input type="number" id="balance" name="balance" th:field="*{balance}" required>
+        <br>
+        
+        <label for="password">Password:</label>
+        <input type="number" id="password" name="password" th:field="*{password}" required>
+        <br>
+        
+        <label for="accountType">Account Type:</label>
+        <input type="text" id="accountType" name="accountType" th:field="*{accountType}" required>
+        <br>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account Display Page</title>
+<style>
+body {
+	font-family: 'Arial', sans-serif;
+	margin: 0;
+	padding: 20px;
+	background-color: #f5f5f5;
+	color: #333;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+th, td {
+	padding: 12px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+th {
+	background-color: #3498db;
+	color: #fff;
+}
+
+tr:hover {
+	background-color: #f5f5f5;
+}
+</style>
+</head>
+<body>
+
+	<h2>Account Information</h2>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Account Number</th>
+				<th>Account Holder</th>
+				<th>Balance</th>
+				<!-- Add more columns as needed -->
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Use Thymeleaf to iterate over accounts and display rows -->
+			<tr>
+				<td th:text="${account.accountNo}">Account Number</td>
+				<td th:text="${account.user.name}">Account Holder</td>
+				<td th:text="${account.balance}">Balance</td>
+				<!-- Add more columns as needed -->
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
